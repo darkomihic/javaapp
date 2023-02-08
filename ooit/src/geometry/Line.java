@@ -28,5 +28,25 @@ public class Line {
 	public String toString() {
 		return "(" + startPoint.getX() + "," + startPoint.getY() + "),(" + endPoint.getX() + " , " + endPoint.getY() + ")"  ;
 	}
+	
+	public void moveBy(int x, int y) {
+		this.startPoint.setX(this.startPoint.getX()+x);
+		this.startPoint.setY(this.startPoint.getY()+y);
+		this.endPoint.setX(this.startPoint.getX()+x);
+		this.endPoint.setY(this.startPoint.getY()+y);
+	}
+	
+	public boolean equals(Object obj) {
+		Line help = (Line) obj;
+		if(obj instanceof Line) {
+			if (this.startPoint.equals(help.startPoint) && this.endPoint.equals(help.endPoint))
+				return true;
+			else
+				return false;
+			
+		} else {
+			return false;
+		}
+	}
 
 }

@@ -46,4 +46,22 @@ public class Point {
 	public String toString() {
 		return "(" + x + "," + y + ")" ;
 	}
+	
+	public void moveBy(int x, int y) {
+		this.x=this.x+x;
+		this.y=this.y+y;
+	}
+	
+	public boolean equals(Object obj) {
+		Point help = (Point) obj;
+		if(obj instanceof Point) {
+			if (this.x == help.x && this.y == help.y)
+				return true;
+			else
+				return false;
+			
+		} else {
+			return false;
+		}
+	}
 }

@@ -55,7 +55,24 @@ public class Rectangle {
 	}
 	
 	public String toString() {
-		return "Upper left point: " + upperLeftPoint + ", width: " + width + ", height: " + height; 
+		return "Upper left point: " + upperLeftPoint.toString() + ", width: " + width + ", height: " + height; 
 	}
 	
+	public void moveBy(int x, int y) {
+		this.upperLeftPoint.setX(this.upperLeftPoint.getX()+x);
+		this.upperLeftPoint.setY(this.upperLeftPoint.getY()+y);
+	}
+	
+	public boolean equals(Object obj) {
+		Rectangle help = (Rectangle) obj;
+		if(obj instanceof Rectangle) {
+			if (help.upperLeftPoint.equals(this.upperLeftPoint) && help.width==this.width && help.height==help.height)
+				return true;
+			else
+				return false;
+			
+		} else {
+			return false;
+		}
+	}
 }
