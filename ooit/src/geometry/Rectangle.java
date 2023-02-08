@@ -76,10 +76,10 @@ public class Rectangle {
 	}
 	
 	public boolean contains(Point point) {
-    	return (this.upperLeftPoint.getX() <= point.getX() 
-    			&& this.upperLeftPoint.getY() >= point.getY() 
-    			&& point.getX() <= this.upperLeftPoint.getX() + this.width 
-    			&& point.getY() >= this.upperLeftPoint.getY() - this.height);
+    	return (this.upperLeftPoint.getX() <=point.getX() &&
+				this.upperLeftPoint.getY() <=point.getY() &&
+				point.getX()<= this.upperLeftPoint.getX() + this.width &&
+				point.getY()<= this.upperLeftPoint.getY() + this.height);
     }
 	
 	
