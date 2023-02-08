@@ -48,4 +48,8 @@ public class Circle {
 			return false;
 		}
 	}
+	
+	public boolean contains(Point point) {
+    	return this.center.distance(point.getX(), point.getY())<=this.radius;
+    }
 }
