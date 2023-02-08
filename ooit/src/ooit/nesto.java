@@ -1,6 +1,6 @@
 package ooit;
 
-import java.util.Scanner;
+
 
 public class nesto {
 	public static void main(String[] args)
