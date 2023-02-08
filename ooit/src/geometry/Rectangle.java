@@ -1,6 +1,6 @@
 package geometry;
 
-import geometrija.Point;
+
 
 public class Rectangle {
 	
