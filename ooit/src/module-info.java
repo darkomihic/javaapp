@@ -6,4 +6,5 @@
  *
  */
 module ooit {
+	requires java.desktop;
 }
