@@ -2,6 +2,8 @@ package geometry;
 
 import java.awt.Graphics;
 
+import geometrija.Point;
+
 public class Circle extends Shape {
 	private Point center;
 	private int radius;
@@ -65,5 +67,18 @@ public class Circle extends Shape {
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public Point getCenter() {
+		return center;
+	}
+	public void setCenter(Point centar) {
+		this.center = centar;
+	}
+	public int getRadius() {
+		return radius;
+	}
+	public void setRadius(int radius) {
+		this.radius = radius;
 	}
 }
