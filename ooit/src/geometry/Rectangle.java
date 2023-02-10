@@ -1,7 +1,8 @@
 package geometry;
 
+import java.awt.Graphics;
 
-public class Rectangle {
+public class Rectangle extends Shape {
 	
 	private Point upperLeftPoint;
 	private int width;
@@ -81,6 +82,18 @@ public class Rectangle {
 				point.getX()<= this.upperLeftPoint.getX() + this.width &&
 				point.getY()<= this.upperLeftPoint.getY() + this.height);
     }
+
+	@Override
+	public boolean contains(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
