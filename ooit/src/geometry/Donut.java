@@ -5,6 +5,7 @@ package geometry;
 public class Donut extends Circle {
 	
 	private int innerRadius;
+	// nesto
 	
 	public Donut() {
 		
