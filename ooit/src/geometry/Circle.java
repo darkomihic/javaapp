@@ -2,7 +2,7 @@ package geometry;
 
 import java.awt.Graphics;
 
-import geometrija.Point;
+
 
 public class Circle extends Shape {
 	private Point center;
