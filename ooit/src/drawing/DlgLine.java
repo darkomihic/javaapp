@@ -35,6 +35,8 @@ public class DlgLine extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
+	//comment
+	//comment
 	public DlgLine() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
