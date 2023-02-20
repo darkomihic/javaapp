@@ -16,9 +16,9 @@ import javax.swing.SwingConstants;
 public class DlgCircle extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtX;
+	private JTextField txtY;
+	private JTextField txtRadius;
 
 	/**
 	 * Launch the application.
@@ -54,9 +54,9 @@ public class DlgCircle extends JDialog {
 					panel_1.add(lblNewLabel);
 				}
 				{
-					textField = new JTextField();
-					panel_1.add(textField);
-					textField.setColumns(10);
+					txtX = new JTextField();
+					panel_1.add(txtX);
+					txtX.setColumns(10);
 				}
 			}
 			{
@@ -67,9 +67,9 @@ public class DlgCircle extends JDialog {
 					panel_1.add(lblNewLabel_1);
 				}
 				{
-					textField_1 = new JTextField();
-					panel_1.add(textField_1);
-					textField_1.setColumns(10);
+					txtY = new JTextField();
+					panel_1.add(txtY);
+					txtY.setColumns(10);
 				}
 			}
 			{
@@ -80,9 +80,9 @@ public class DlgCircle extends JDialog {
 					panel_1.add(lblNewLabel_2);
 				}
 				{
-					textField_2 = new JTextField();
-					panel_1.add(textField_2);
-					textField_2.setColumns(10);
+					txtRadius = new JTextField();
+					panel_1.add(txtRadius);
+					txtRadius.setColumns(10);
 				}
 			}
 		}

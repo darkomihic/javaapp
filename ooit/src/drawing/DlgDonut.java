@@ -14,9 +14,10 @@ import javax.swing.border.EmptyBorder;
 public class DlgDonut extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtX;
+	private JTextField txtY;
+	private JTextField txtRadius;
+	private JTextField txtInnerRadius;
 
 	/**
 	 * Launch the application.
@@ -51,7 +52,11 @@ public class DlgDonut extends JDialog {
 					JLabel lblNewLabel = new JLabel("X coordinate:");
 					panel_1.add(lblNewLabel);
 				}
-				
+				{
+					txtX = new JTextField();
+					panel_1.add(txtX);
+					txtX.setColumns(10);
+				}
 			}
 			{
 				JPanel panel_1 = new JPanel();
@@ -61,14 +66,9 @@ public class DlgDonut extends JDialog {
 					panel_1.add(lblNewLabel_1);
 				}
 				{
-					textField_1 = new JTextField();
-					panel_1.add(textField_1);
-					{
-						textField_1 = new JTextField();
-						panel_1.add(textField_1);
-						textField_1.setColumns(10);
-					}
-					textField_1.setColumns(10);
+					txtY = new JTextField();
+					panel_1.add(txtY);
+					txtY.setColumns(10);
 				}
 			}
 			{
@@ -79,14 +79,22 @@ public class DlgDonut extends JDialog {
 					panel_1.add(lblNewLabel_2);
 				}
 				{
-					textField_2 = new JTextField();
-					panel_1.add(textField_2);
-					{
-						textField_2 = new JTextField();
-						panel_1.add(textField_2);
-						textField_2.setColumns(10);
-					}
-					textField_2.setColumns(10);
+					txtRadius = new JTextField();
+					panel_1.add(txtRadius);
+					txtRadius.setColumns(10);
+				}
+			}
+			{
+				JPanel panel_1 = new JPanel();
+				panel.add(panel_1);
+				{
+					JLabel lblNewLabel_3 = new JLabel("Inner Radius:");
+					panel_1.add(lblNewLabel_3);
+				}
+				{
+					txtInnerRadius = new JTextField();
+					panel_1.add(txtInnerRadius);
+					txtInnerRadius.setColumns(10);
 				}
 			}
 		}
