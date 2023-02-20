@@ -17,6 +17,12 @@ public class Test {
 		System.out.println(firstRectangle.contains(fourthPoint));
 		System.out.println(firstRectangle.contains(thirdPoint));
 		
+		Line firstLine = new Line(firstPoint, secondPoint);
+		System.out.println(firstLine.toString());
+		firstLine.moveBy(20, 20);
+		System.out.println(firstLine.toString());
+		
+		
 		
 		
 		

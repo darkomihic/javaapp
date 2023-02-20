@@ -59,8 +59,7 @@ public class Rectangle extends Shape {
 	}
 	
 	public void moveBy(int x, int y) {
-		this.upperLeftPoint.setX(this.upperLeftPoint.getX()+x);
-		this.upperLeftPoint.setY(this.upperLeftPoint.getY()+y);
+		this.upperLeftPoint.moveBy(x, y);
 	}
 	
 	public boolean equals(Object obj) {
@@ -92,6 +91,13 @@ public class Rectangle extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveTo(int x, int y) {
+		Point help = new Point(x,y);
+		this.setUpperLeftPoint(help);
 		
 	}
 	

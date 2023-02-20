@@ -32,8 +32,7 @@ public class Circle extends Shape {
 	}
 	
 	public void moveBy(int x, int y) {
-		this.center.setX(this.center.getX()+x);
-		this.center.setY(this.center.getY()+y);
+		this.center.moveBy(x,y);
 	}
 	
 	public String toString() {
@@ -80,5 +79,13 @@ public class Circle extends Shape {
 	}
 	public void setRadius(int radius) {
 		this.radius = radius;
+	}
+
+	@Override
+	public void moveTo(int x, int y) {
+		this.center.setX(x);
+		this.center.setY(y);
+		
+		
 	}
 }

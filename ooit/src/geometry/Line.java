@@ -32,10 +32,8 @@ public class Line extends Shape {
 	}
 	
 	public void moveBy(int x, int y) {
-		this.startPoint.setX(this.startPoint.getX()+x);
-		this.startPoint.setY(this.startPoint.getY()+y);
-		this.endPoint.setX(this.startPoint.getX()+x);
-		this.endPoint.setY(this.startPoint.getY()+y);
+		this.startPoint.moveBy(x, y);
+		this.endPoint.moveBy(x, y);
 	}
 	
 	public boolean equals(Object obj) {
@@ -63,5 +61,26 @@ public class Line extends Shape {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void moveTo(int x, int y) {
+		
+		int helpx;
+		int helpy;
+		
+		helpx=x-this.startPoint.getX();
+		helpy=y-this.startPoint.getY();
+		
+		
+		this.startPoint.setX(x);
+		this.startPoint.setY(y);
+		
+		this.endPoint.setY(this.endPoint.getY()+helpy);
+		this.endPoint.setX(this.endPoint.getX()+helpx);
+		
+		
+	}
+
+	
 
 }

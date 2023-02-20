@@ -76,4 +76,12 @@ public class Point extends Shape {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void moveTo(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }
