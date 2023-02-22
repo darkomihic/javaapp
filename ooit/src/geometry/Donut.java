@@ -1,6 +1,7 @@
 package geometry;
 
-
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Donut extends Circle {
 	
@@ -16,9 +17,19 @@ public class Donut extends Circle {
 		this.innerRadius=innerRadius;
 	}
 	
-	public Donut(Point centar,int radius, int innerRadius,boolean selected) {
-		this(centar,radius,innerRadius);
+	public Donut(Point center,int radius, int innerRadius,boolean selected) {
+		this(center,radius,innerRadius);
 		setSelected(selected);
+	}
+	
+	public Donut(Point center,int radius, int innerRadius,boolean selected,Color color) {
+		this(center,radius,innerRadius,selected);
+		this.setColor(color);
+	}
+	
+	public Donut(Point center,int radius, int innerRadius,boolean selected,Color color,Color innerColor) {
+		this(center,radius,innerRadius,selected,color);
+		this.setInnerColor(innerColor);
 	}
 	
 	public double area() {
@@ -54,5 +65,20 @@ public class Donut extends Circle {
 	
 	public String toString() {
 		return super.toString() + ", inner radius" + innerRadius;
+	}
+	
+	public void draw(Graphics g) {
+		g.setColor(getInnerColor());
+		g.drawOval(this.getCenter().getX()-this.innerRadius,this.getCenter().getY()-this.innerRadius,
+				this.innerRadius*2, this.innerRadius*2);
+		this.fill(g);
+	}
+	
+	public void fill(Graphics g) {
+		g.setColor(getInnerColor());
+		super.fill(g);
+		g.setColor(Color.white); //da oboji unutrasnjost valjda
+		g.fillOval(this.getCenter().getX()-innerRadius+1,this.getCenter().getY()-innerRadius+1,
+				this.innerRadius*2-2,this.innerRadius*2-2);
 	}
 }

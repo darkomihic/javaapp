@@ -5,11 +5,10 @@ import java.awt.Graphics;
 
 
 
-public class Circle extends Shape {
+public class Circle extends SurfaceShape {
 	private Point center;
 	private int radius;
-	private Color color;
-	private Color innerColor;
+	
 	
 	
 	public Circle() {
@@ -28,12 +27,12 @@ public class Circle extends Shape {
 	
 	public Circle(Point center, int radius, boolean selected, Color color) {
 		this(center,radius,selected);
-		this.color=color;
+		this.setColor(color);
 	}
 	
 	public Circle(Point center, int radius, boolean selected, Color color, Color innerColor) {
 		this(center, radius, selected, color);
-		this.innerColor=innerColor;
+		this.setInnerColor(innerColor);
 	}
 	
 	public double area () {
