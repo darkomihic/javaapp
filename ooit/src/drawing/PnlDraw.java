@@ -15,8 +15,8 @@ public class PnlDraw extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PnlDraw() {
-
+	public PnlDraw(FrmDraw frame) {
+		
 	}
 
 }
