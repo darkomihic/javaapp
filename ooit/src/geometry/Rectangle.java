@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rectangle extends Shape {
@@ -27,6 +28,11 @@ public class Rectangle extends Shape {
 		this.selected=selected;
 	}
 	
+	public Rectangle(Point upperLeftPoint, int width, int height, boolean selected, Color color) {
+	
+		this(upperLeftPoint,width,height,selected);
+		this.setColor(color);
+	}
 	public int area() {
 		return height*width;
 	}
@@ -85,13 +91,24 @@ public class Rectangle extends Shape {
 	@Override
 	public boolean contains(int x, int y) {
 		// TODO Auto-generated method stub
-		return false;
+		if (this.upperLeftPoint.getX() <=x &&
+				this.upperLeftPoint.getY() <=y &&
+				x<= this.upperLeftPoint.getX() + this.width &&
+				y<= this.upperLeftPoint.getY() + this.height) {
+			return true;
+		}else return false;
 	}
 
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		
+		g.setColor(getColor());
+		g.drawRect(this.upperLeftPoint.getX(), this.upperLeftPoint.getY(), width, height);
+	}
+	
+	public void fill(Graphics g) {
+		g.setColor(getColor());
+		g.fillRect(this.upperLeftPoint.getX(), this.upperLeftPoint.getY(), width, height);
 	}
 
 	@Override

@@ -2,6 +2,8 @@ package geometry;
 
 import java.awt.Graphics;
 
+
+
 public class Point extends Shape {
 	private int x;
 	private int y;
@@ -74,13 +76,25 @@ public class Point extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		
+		g.setColor(getColor());
+		g.drawLine(this.x-2, this.y, this.x+2, this.y);
+		g.drawLine(this.x,  this.y-2,  this.x, this.y+2);
 	}
 
 	@Override
 	public void moveTo(int x, int y) {
 		// TODO Auto-generated method stub
+		this.x=x;
+		this.y=y;
 		
+	}
+	
+	public int compareTo(Object o) {
+		if(o instanceof Point) {
+			Point help = new Point(0 , 0);
+			return (int) (this.distance(help.getX(), help.getY())-((Point)o).distance(help.getX(),help.getY() ) );
+		}
+		return 0;
 	}
 	
 	
