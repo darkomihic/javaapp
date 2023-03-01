@@ -8,17 +8,15 @@ import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
 import javax.swing.BoxLayout;
-
+import javax.swing.JButton;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class FrmDraw extends JFrame {
 
 	private JPanel contentPane;
-	private ButtonGroup btnGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -52,42 +50,32 @@ public class FrmDraw extends JFrame {
 		contentPane.add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JRadioButton btnPoint = new JRadioButton("Point");
-		panel.add(btnPoint);
-		btnGroup.add(btnPoint);
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("New radio button");
+		panel.add(rdbtnNewRadioButton_1);
 		
-		JRadioButton btnLine = new JRadioButton("Line");
-		panel.add(btnLine);
-		btnGroup.add(btnLine);
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
+		panel.add(rdbtnNewRadioButton);
 		
-		JRadioButton btnRectangle = new JRadioButton("Rectangle");
-		panel.add(btnRectangle);
-		btnGroup.add(btnRectangle);
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("New radio button");
+		panel.add(rdbtnNewRadioButton_2);
 		
-		JRadioButton btnCircle = new JRadioButton("Circle");
-		panel.add(btnCircle);
-		btnGroup.add(btnCircle);
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("New radio button");
+		panel.add(rdbtnNewRadioButton_3);
 		
-		JRadioButton btnDonut = new JRadioButton("Donut");
-		panel.add(btnDonut);
-		btnGroup.add(btnDonut);
+		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("New radio button");
+		panel.add(rdbtnNewRadioButton_4);
 		
-		JButton btnSelect = new JButton("Select");
-		panel.add(btnSelect);
+		JButton btnNewButton = new JButton("New button");
+		panel.add(btnNewButton);
 		
-		JButton btnEdit = new JButton("Edit");
-		panel.add(btnEdit);
+		JButton btnNewButton_1 = new JButton("New button");
+		panel.add(btnNewButton_1);
 		
-		JButton btnDelete = new JButton("Delete");
-		panel.add(btnDelete);
+		JButton btnNewButton_2 = new JButton("New button");
+		panel.add(btnNewButton_2);
 		
-		JPanel pnlCentar = new JPanel();
-		pnlCentar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		contentPane.add(pnlCentar, BorderLayout.CENTER);
-		pnlCentar.setLayout(new BoxLayout(pnlCentar, BoxLayout.X_AXIS));
-		
-		JPanel pnlDraw = new PnlDraw(this);
-		pnlCentar.add(pnlDraw);
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.EAST);
 	}
 
 }
