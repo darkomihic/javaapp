@@ -115,8 +115,8 @@ public class Rectangle extends SurfaceShape {
 	}
 	
 	public void fill(Graphics g) {
-		g.setColor(getColor());
-		g.fillRect(this.upperLeftPoint.getX(), this.upperLeftPoint.getY(), width, height);
+		g.setColor(getInnerColor());
+		g.fillRect(this.upperLeftPoint.getX()+1, this.upperLeftPoint.getY()+1, width-1, height-1);
 	}
 
 	@Override
