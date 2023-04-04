@@ -3,7 +3,9 @@ package geometry;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Rectangle extends Shape {
+
+
+public class Rectangle extends SurfaceShape {
 	
 	private Point upperLeftPoint;
 	private int width;
@@ -32,6 +34,11 @@ public class Rectangle extends Shape {
 	
 		this(upperLeftPoint,width,height,selected);
 		this.setColor(color);
+	}
+	
+	public Rectangle (Point upperLeftPoint,int width, int height, boolean selected,Color color,Color innerColor) {
+		this(upperLeftPoint,width,height,selected,color);
+		this.setInnerColor(innerColor);
 	}
 	public int area() {
 		return height*width;
@@ -104,6 +111,7 @@ public class Rectangle extends Shape {
 		// TODO Auto-generated method stub
 		g.setColor(getColor());
 		g.drawRect(this.upperLeftPoint.getX(), this.upperLeftPoint.getY(), width, height);
+		this.fill(g);
 	}
 	
 	public void fill(Graphics g) {

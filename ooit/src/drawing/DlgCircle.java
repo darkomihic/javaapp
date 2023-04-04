@@ -1,13 +1,18 @@
 package drawing;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.BoxLayout;
@@ -19,6 +24,11 @@ public class DlgCircle extends JDialog {
 	private JTextField txtX;
 	private JTextField txtY;
 	private JTextField txtRadius;
+	private JButton btnOk;
+	protected boolean isOk = true;
+	private JButton btnCancel;
+	private JButton btnInnerColor;
+	private JButton btnOuterColor;
 
 	/**
 	 * Launch the application.
@@ -37,6 +47,7 @@ public class DlgCircle extends JDialog {
 	 * Create the dialog.
 	 */
 	public DlgCircle() {
+		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -94,7 +105,13 @@ public class DlgCircle extends JDialog {
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
 				{
-					JButton btnInnerColor = new JButton("Inner Color");
+					btnInnerColor = new JButton("Inner Color");
+					btnInnerColor.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							Color color = JColorChooser.showDialog(null, "Choose a color", Color.BLACK);
+							btnInnerColor.setBackground(color);	
+						}
+					});
 					panel_1.add(btnInnerColor);
 				}
 			}
@@ -102,7 +119,13 @@ public class DlgCircle extends JDialog {
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
 				{
-					JButton btnOuterColor = new JButton("Button Color");
+					btnOuterColor = new JButton("Button Color");
+					btnOuterColor.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							Color color = JColorChooser.showDialog(null, "Choose a color", Color.BLACK);
+							btnOuterColor.setBackground(color);
+						}
+					});
 					panel_1.add(btnOuterColor);
 				}
 			}
@@ -112,17 +135,72 @@ public class DlgCircle extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+				btnOk = new JButton("OK");
+				btnOk.setActionCommand("OK");
+				btnOk.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						isOk=true;
+						setVisible(false);
+					}
+					
+				});
+				btnOk.setActionCommand("OK");
+			
+				buttonPane.add(btnOk);
+				getRootPane().setDefaultButton(btnOk);
 			}
 			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				btnCancel = new JButton("Cancel");
+				btnCancel.setActionCommand("Cancel");
+				btnCancel.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						setVisible(false);
+						
+					}
+				});
+				buttonPane.add(btnCancel);
 			}
 		}
+	}
+	
+	public JTextField gettxtX() {
+		return txtX;
+	}
+
+	public void settxtX(JTextField txtX) {
+		this.txtX = txtX;
+	}
+
+	public JTextField gettxtY() {
+		return txtY;
+	}
+
+	public void settxtY(JTextField txtY) {
+		this.txtY = txtY;
+	}
+
+	public JTextField gettxtRadius() {
+		return txtRadius;
+	}
+
+	public void settxtRadius(JTextField txtRadius) {
+		this.txtRadius = txtRadius;
+	}
+
+	public JButton getbtnOk() {
+		return btnOk;
+	}
+
+	public void setbtnOk(JButton btnOk) {
+		this.btnOk = btnOk;
+	}
+
+	public JButton getBtnInnerColor() {
+		return btnInnerColor;
+	}
+	public JButton getBtnOuterColor() {
+		return btnOuterColor;
 	}
 
 }
