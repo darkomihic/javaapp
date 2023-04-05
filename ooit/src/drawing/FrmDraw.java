@@ -3,6 +3,7 @@ package drawing;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
@@ -15,20 +16,23 @@ import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
 
 public class FrmDraw extends JFrame {
 
-	private JPanel contentPane;
+	private PnlDraw contentPane;
 	private static JToggleButton btnPoint;
 	private static JToggleButton btnLine;
 	private static JToggleButton btnRectangle;
 	private static JToggleButton btnCircle;
 	private static JToggleButton btnDonut;
-	private JButton btnDelete;
-	private JButton btnSelect;
-	private JButton btnEdit;
+	private JToggleButton btnDelete;
+	private JToggleButton btnSelect;
+	private JToggleButton btnEdit;
 	private static ButtonGroup buttonGroup = new ButtonGroup();
+	
 
 	/**
 	 * Launch the application.
@@ -88,13 +92,28 @@ public class FrmDraw extends JFrame {
 		btnDonut = new JToggleButton("Donut");
 		panel.add(btnDonut);
 		
-		btnSelect = new JButton("Select");
+		btnSelect = new JToggleButton("Select");
 		panel.add(btnSelect);
 		
-		btnEdit = new JButton("Edit");
+		btnEdit = new JToggleButton("Edit");
 		panel.add(btnEdit);
 		
-		btnDelete = new JButton("Delete");
+		btnDelete = new JToggleButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(contentPane.getIndex() == -1) {
+					JOptionPane.showMessageDialog(null, "Please select shape you want to delete", "Error", JOptionPane.ERROR_MESSAGE);				
+				}
+				else {
+					int a=JOptionPane.showConfirmDialog(null,"Are you sure?");  
+					if(a==JOptionPane.YES_OPTION){  
+						contentPane.getShapes().remove(contentPane.getIndex());
+						contentPane.setIndex(-1);
+						contentPane.repaint();
+					}
+				}
+			}
+		});
 		panel.add(btnDelete);
 		
 		JPanel panel_1 = new JPanel();
@@ -117,13 +136,13 @@ public class FrmDraw extends JFrame {
 	public JToggleButton getBtnLine() {
 		return btnLine;
 	}
-	public JButton getBtnSelect() {
+	public JToggleButton getBtnSelect() {
 		return btnSelect;
 	}
-	public JButton getBtnDelete() {
+	public JToggleButton getBtnDelete() {
 		return btnDelete;
 	}
-	public JButton getBtnEdit() {
+	public JToggleButton getBtnEdit() {
 		return btnEdit;
 	}
 	
