@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import geometry.Circle;
+import geometry.Donut;
 import geometry.Line;
 import geometry.Point;
 import geometry.Rectangle;
@@ -132,6 +133,27 @@ public class PnlDraw extends JPanel {
 					
 					
 				}else if(frame.getBtnDonut().isSelected()) {
+					Donut donut = new Donut();
+					donut.setCenter(new Point(e.getX(),e.getY()));
+					
+					DlgDonut dlgDonut = new DlgDonut();
+					dlgDonut.gettxtX().setText(e.getX() + "");
+					dlgDonut.gettxtY().setText(e.getY() + "");	
+					dlgDonut.setVisible(true);
+					
+					try {
+						
+						donut.setRadius(Integer.parseInt(dlgDonut.gettxtRadius().getText()));
+						donut.setInnerRadius(Integer.parseInt(dlgDonut.gettxtInnerRadius().getText()));
+						donut.setColor(dlgDonut.getBtnBorderColor().getBackground());
+						donut.setInnerColor(dlgDonut.getBtnInnerColor().getBackground());
+						shapes.add(donut);
+						
+					} catch (Exception e1)
+					{
+						JOptionPane.showMessageDialog(null, "please enter valid value", "message", JOptionPane.INFORMATION_MESSAGE);
+
+					}
 					
 				}
 				repaint();

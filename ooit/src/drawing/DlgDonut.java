@@ -1,12 +1,17 @@
 package drawing;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -18,7 +23,12 @@ public class DlgDonut extends JDialog {
 	private JTextField txtY;
 	private JTextField txtRadius;
 	private JTextField txtInnerRadius;
-
+	private JButton btnOk;
+	protected boolean isOk;
+	private JButton btnCancel;
+	private JButton btnInnerColor;
+	private JButton btnOuterColor;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -37,6 +47,7 @@ public class DlgDonut extends JDialog {
 	 */
 	public DlgDonut() {
 		setBounds(100, 100, 450, 300);
+		setModal(true);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -106,7 +117,14 @@ public class DlgDonut extends JDialog {
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
 				{
-					JButton btnInnerColor = new JButton("Inner Color");
+					btnInnerColor = new JButton("Inner Color");
+					btnInnerColor = new JButton("Button Color");
+					btnInnerColor.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							Color color = JColorChooser.showDialog(null, "Choose a color", Color.BLACK);
+							btnInnerColor.setBackground(color);
+						}
+					});
 					panel_1.add(btnInnerColor);
 				}
 			}
@@ -114,7 +132,13 @@ public class DlgDonut extends JDialog {
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
 				{
-					JButton btnOuterColor = new JButton("Button Color");
+					btnOuterColor = new JButton("Outer Color");
+					btnOuterColor.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							Color color = JColorChooser.showDialog(null, "Choose a color", Color.BLACK);
+							btnOuterColor.setBackground(color);
+						}
+					});
 					panel_1.add(btnOuterColor);
 				}
 			}
@@ -124,17 +148,82 @@ public class DlgDonut extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+				btnOk = new JButton("OK");
+				btnOk.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					
+						if(Integer.parseInt(gettxtRadius().getText()) < Integer.parseInt(gettxtInnerRadius().getText())) {
+							JOptionPane.showMessageDialog(null, "radius must be greater than inner radius", "message", JOptionPane.INFORMATION_MESSAGE);
+						}
+						else {
+						isOk=true;
+						setVisible(false);
+					
+						}
+					}
+				});
+				btnOk.setActionCommand("OK");
+				buttonPane.add(btnOk);
+				getRootPane().setDefaultButton(btnOk);
 			}
 			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				btnCancel = new JButton("Cancel");
+				btnCancel.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						setVisible(false);
+					}
+				});
+				btnCancel.setActionCommand("Cancel");
+				buttonPane.add(btnCancel);
 			}
 		}
+	}
+	
+	public JButton getbtnOk() {
+		return btnOk;
+	}
+
+	public void setOkButton(JButton btnOk) {
+		this.btnOk = btnOk;
+	}
+
+	public JButton getBtnBorderColor() {
+		return btnOuterColor;
+	}
+	public JButton getBtnInnerColor() {
+		return btnInnerColor;
+	}
+
+	public JTextField gettxtX() {
+		return txtX;
+	}
+
+	public void settxtX(JTextField txtX) {
+		this.txtX = txtX;
+	}
+
+	public JTextField gettxtY() {
+		return txtY;
+	}
+
+	public void settxtY(JTextField txtY) {
+		this.txtY = txtY;
+	}
+
+	public JTextField gettxtRadius() {
+		return txtRadius;
+	}
+
+	public void settxtRadius(JTextField textRadius) {
+		this.txtRadius = textRadius;
+	}
+
+	public JTextField gettxtInnerRadius() {
+		return txtInnerRadius;
+	}
+
+	public void settxtInnerRadius(JTextField textInnerRadius) {
+		this.txtInnerRadius = textInnerRadius;
 	}
 
 }
