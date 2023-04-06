@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import geometry.Shape;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -29,7 +32,7 @@ public class FrmDraw extends JFrame {
 	private static JToggleButton btnCircle;
 	private static JToggleButton btnDonut;
 	private JToggleButton btnDelete;
-	private JToggleButton btnSelect;
+	private static JToggleButton btnSelect;
 	private JToggleButton btnEdit;
 	private static ButtonGroup buttonGroup = new ButtonGroup();
 	
@@ -47,6 +50,7 @@ public class FrmDraw extends JFrame {
 					buttonGroup.add(btnPoint);
 					buttonGroup.add(btnLine);
 					buttonGroup.add(btnCircle);
+					buttonGroup.add(btnSelect);
 					frame.setVisible(true);
 					
 					
@@ -113,7 +117,11 @@ public class FrmDraw extends JFrame {
 					}
 				}
 			}
+		
+				
+			
 		});
+	
 		panel.add(btnDelete);
 		
 		JPanel panel_1 = new JPanel();

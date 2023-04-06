@@ -21,9 +21,9 @@ public class PnlDraw extends JPanel {
 
 	
 	private FrmDraw frame;
-	private ArrayList<Shape>shapes=new ArrayList<Shape>();
+	protected static ArrayList<Shape>shapes=new ArrayList<Shape>();
 	private boolean clickedFirst;
-	private Point firstPoint;
+	protected static Point firstPoint;
 	private Point secondPoint;
 	private int index = -1;
 	
@@ -37,6 +37,12 @@ public class PnlDraw extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				 firstPoint = new Point(e.getX(),e.getY());
+				 
+				if(frame.getBtnSelect().isSelected()) {
+					for(Shape s : shapes) {
+						s.contains(e.getX(), e.getY());
+					}
+				}
 		
 				if(frame.getBtnSelect().isSelected()){
 					for(int i = 0; i < shapes.size();i++) {						
@@ -156,6 +162,8 @@ public class PnlDraw extends JPanel {
 					}
 					
 				}
+				
+				
 				repaint();
 			}
 			

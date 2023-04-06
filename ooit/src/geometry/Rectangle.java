@@ -112,6 +112,14 @@ public class Rectangle extends SurfaceShape {
 		g.setColor(getColor());
 		g.drawRect(this.upperLeftPoint.getX(), this.upperLeftPoint.getY(), width, height);
 		this.fill(g);
+		
+		if(selected) {
+			g.setColor(Color.BLUE);
+			g.drawRect(upperLeftPoint.getX() - 2, upperLeftPoint.getY() - 2, 4, 4);
+			g.drawRect(upperLeftPoint.getX() + width - 2, upperLeftPoint.getY() - 2, 4, 4);
+			g.drawRect(upperLeftPoint.getX() - 2, upperLeftPoint.getY() + height - 2, 4, 4);
+			g.drawRect(upperLeftPoint.getX() + width - 2, upperLeftPoint.getY() + height - 2, 4, 4);
+		}
 	}
 	
 	public void fill(Graphics g) {
@@ -125,6 +133,8 @@ public class Rectangle extends SurfaceShape {
 		this.setUpperLeftPoint(help);
 		
 	}
+	
+	
 	
 	
 }
