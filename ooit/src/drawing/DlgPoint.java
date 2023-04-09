@@ -2,6 +2,8 @@ package drawing;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -16,7 +18,8 @@ public class DlgPoint extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtX;
 	private JTextField txtY;
-	private JTextField txtRadius;
+	private JButton btnColor;
+	protected boolean isOk;
 
 	/**
 	 * Launch the application.
@@ -35,7 +38,7 @@ public class DlgPoint extends JDialog {
 	 * Create the dialog.
 	 */
 	public DlgPoint() {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 328, 249);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -73,15 +76,6 @@ public class DlgPoint extends JDialog {
 			{
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
-				{
-					JLabel lblNewLabel_2 = new JLabel("Radius:");
-					panel_1.add(lblNewLabel_2);
-				}
-				{
-					txtRadius = new JTextField();
-					panel_1.add(txtRadius);
-					txtRadius.setColumns(10);
-				}
 			}
 		}
 		{
@@ -92,17 +86,13 @@ public class DlgPoint extends JDialog {
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
 				{
-					JButton btnInnerColor = new JButton("Inner Color");
-					panel_1.add(btnInnerColor);
+					btnColor = new JButton("Color");
+					panel_1.add(btnColor);
 				}
 			}
 			{
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
-				{
-					JButton btnOuterColor = new JButton("Button Color");
-					panel_1.add(btnOuterColor);
-				}
 			}
 		}
 		{
@@ -113,6 +103,12 @@ public class DlgPoint extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						isOk=true;
+						setVisible(false);
+					}
+				});
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
@@ -122,5 +118,35 @@ public class DlgPoint extends JDialog {
 			}
 		}
 	}
+	
+	public JTextField getTxtX() {
+		return txtX;
+	}
+
+	public void setTxtX(JTextField txtX) {
+		this.txtX = txtX;
+	}
+
+	public JTextField getTxtY() {
+		return txtY;
+	}
+
+	public void setTxtY(JTextField txtY) {
+		this.txtY = txtY;
+	}
+
+	public JButton getColor() {
+		return btnColor;
+	}
+
+	public boolean isOk() {
+		return isOk;
+	}
+
+	public void setOk(boolean isOk) {
+		this.isOk = isOk;
+	}
+	
+	
 
 }

@@ -21,9 +21,9 @@ public class PnlDraw extends JPanel {
 
 	
 	private FrmDraw frame;
-	protected static ArrayList<Shape>shapes=new ArrayList<Shape>();
+	private ArrayList<Shape>shapes=new ArrayList<Shape>();
 	private boolean clickedFirst;
-	protected static Point firstPoint;
+	private Point firstPoint;
 	private Point secondPoint;
 	private int index = -1;
 	
