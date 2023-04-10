@@ -149,9 +149,15 @@ public class DlgLine extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				JButton btnCancel = new JButton("Cancel");
+				btnCancel.setActionCommand("Cancel");
+				btnCancel.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						isOk=false;
+						setVisible(false);
+					}
+				});
+				buttonPane.add(btnCancel);
 			}
 		}
 	}

@@ -170,6 +170,7 @@ public class DlgDonut extends JDialog {
 				btnCancel = new JButton("Cancel");
 				btnCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						isOk=false;
 						setVisible(false);
 					}
 				});

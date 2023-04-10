@@ -162,6 +162,12 @@ public class DlgRectangle extends JDialog {
 			{
 				btnCancel = new JButton("Cancel");
 				btnCancel.setActionCommand("Cancel");
+				btnCancel.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						isOk=false;
+						setVisible(false);
+					}
+				});
 				buttonPane.add(btnCancel);
 			}
 		}

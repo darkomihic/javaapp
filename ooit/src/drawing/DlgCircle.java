@@ -155,6 +155,7 @@ public class DlgCircle extends JDialog {
 				btnCancel.setActionCommand("Cancel");
 				btnCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						isOk=false;
 						setVisible(false);
 						
 					}
