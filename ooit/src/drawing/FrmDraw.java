@@ -41,9 +41,9 @@ public class FrmDraw extends JFrame {
 	private static JToggleButton btnRectangle;
 	private static JToggleButton btnCircle;
 	private static JToggleButton btnDonut;
-	private JToggleButton btnDelete;
+	private JButton btnDelete;
 	private static JToggleButton btnSelect;
-	private JToggleButton btnEdit;
+	private JButton btnEdit;
 	private static ButtonGroup buttonGroup = new ButtonGroup();
 	
 
@@ -109,7 +109,7 @@ public class FrmDraw extends JFrame {
 		btnSelect = new JToggleButton("Select");
 		panel.add(btnSelect);
 		
-		btnEdit = new JToggleButton("Edit");
+		btnEdit = new JButton("Edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(contentPane.getIndex() == -1) {
@@ -273,7 +273,7 @@ public class FrmDraw extends JFrame {
 		});
 		panel.add(btnEdit);
 		
-		btnDelete = new JToggleButton("Delete");
+		btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(contentPane.getIndex() == -1) {
@@ -318,10 +318,10 @@ public class FrmDraw extends JFrame {
 	public JToggleButton getBtnSelect() {
 		return btnSelect;
 	}
-	public JToggleButton getBtnDelete() {
+	public JButton getBtnDelete() {
 		return btnDelete;
 	}
-	public JToggleButton getBtnEdit() {
+	public JButton getBtnEdit() {
 		return btnEdit;
 	}
 	
