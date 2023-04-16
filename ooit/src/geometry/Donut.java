@@ -6,6 +6,8 @@ import java.awt.Graphics;
 public class Donut extends Circle {
 	
 	private int innerRadius;
+	
+	
 	// nesto
 	
 	public Donut() {
@@ -68,16 +70,16 @@ public class Donut extends Circle {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(getInnerColor());
+		super.draw(g);
+		g.setColor(getColor());
 		g.drawOval(this.getCenter().getX()-this.innerRadius,this.getCenter().getY()-this.innerRadius,
 				this.innerRadius*2, this.innerRadius*2);
-		this.fill(g);
+		
 	}
 	
 	public void fill(Graphics g) {
-		g.setColor(getInnerColor());
 		super.fill(g);
-		g.setColor(Color.white); //da oboji unutrasnjost valjda
+		g.setColor(new Color(255, 255, 255, 0)); //da oboji unutrasnjost valjda
 		g.fillOval(this.getCenter().getX()-innerRadius+1,this.getCenter().getY()-innerRadius+1,
 				this.innerRadius*2-2,this.innerRadius*2-2);
 	}

@@ -118,7 +118,6 @@ public class DlgDonut extends JDialog {
 				panel.add(panel_1);
 				{
 					btnInnerColor = new JButton("Inner Color");
-					btnInnerColor = new JButton("Button Color");
 					btnInnerColor.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							Color color = JColorChooser.showDialog(null, "Choose a color", Color.BLACK);
