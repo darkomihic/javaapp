@@ -119,7 +119,7 @@ public class DlgCircle extends JDialog {
 				JPanel panel_1 = new JPanel();
 				panel.add(panel_1);
 				{
-					btnOuterColor = new JButton("Button Color");
+					btnOuterColor = new JButton("Outer Color");
 					btnOuterColor.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							Color color = JColorChooser.showDialog(null, "Choose a color", Color.BLACK);

@@ -98,10 +98,7 @@ public class PnlDraw extends JPanel {
 							rectangle.setInnerColor(dlgRectangle.getBtnInnerColor().getBackground());
 							shapes.add(rectangle);
 						}
-						else
-						{
-							System.out.println("ovde ispada jebemu mu majku u picku");
-						}
+						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						//e1.printStackTrace();
@@ -126,10 +123,8 @@ public class PnlDraw extends JPanel {
 							circle.setInnerColor(dlgCircle.getBtnInnerColor().getBackground());
 							shapes.add(circle);
 						}
-						else
-						{
-							System.out.println("ovde ispao");
-						}
+						
+						
 						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
@@ -149,11 +144,13 @@ public class PnlDraw extends JPanel {
 					
 					try {
 						
-						donut.setRadius(Integer.parseInt(dlgDonut.gettxtRadius().getText()));
-						donut.setInnerRadius(Integer.parseInt(dlgDonut.gettxtInnerRadius().getText()));
-						donut.setColor(dlgDonut.getBtnBorderColor().getBackground());
-						donut.setInnerColor(dlgDonut.getBtnInnerColor().getBackground());
-						shapes.add(donut);
+						if(dlgDonut.isOk) {
+							donut.setRadius(Integer.parseInt(dlgDonut.gettxtRadius().getText()));
+							donut.setInnerRadius(Integer.parseInt(dlgDonut.gettxtInnerRadius().getText()));
+							donut.setColor(dlgDonut.getBtnBorderColor().getBackground());
+							donut.setInnerColor(dlgDonut.getBtnInnerColor().getBackground());
+							shapes.add(donut);
+						}
 						
 					} catch (Exception e1)
 					{
