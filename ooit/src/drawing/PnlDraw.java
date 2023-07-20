@@ -55,7 +55,7 @@ public class PnlDraw extends JPanel {
 							shapes.get(i).setSelected(true);
 							index = i;
 							break;
-							//napravi da mzd ispise poruku u konzoli za objekat  ako je selectovan pa skontaj tako nesss
+							//radi
 						}		 
 						
 					}
