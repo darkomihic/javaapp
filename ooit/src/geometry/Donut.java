@@ -75,12 +75,23 @@ public class Donut extends Circle {
 		g.drawOval(this.getCenter().getX()-this.innerRadius,this.getCenter().getY()-this.innerRadius,
 				this.innerRadius*2, this.innerRadius*2);
 		
+		/*if(selected) {
+			super.draw(g);
+			g.setColor(Color.BLUE);
+			g.drawRect(center.getX() - 2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX() - innerRadius - 2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX() + innerRadius - 2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX() - 2, center.getY() - innerRadius - 2, 4, 4);
+			g.drawRect(center.getX() - 2, center.getY() + innerRadius - 2, 4, 4);
+			g.setColor(Color.BLACK);
+		}*/
+		
 	}
 	
 	public void fill(Graphics g) {
 		super.fill(g);
-		g.setColor(new Color(255, 255, 255, 0)); //da oboji unutrasnjost valjda
+		g.setColor(Color.WHITE); //da oboji unutrasnjost valjda
 		g.fillOval(this.getCenter().getX()-innerRadius+1,this.getCenter().getY()-innerRadius+1,
-				this.innerRadius*2-2,this.innerRadius*2-2);
+				this.innerRadius*2-4,this.innerRadius*2-4);
 	}
 }

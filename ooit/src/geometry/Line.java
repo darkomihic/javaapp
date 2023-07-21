@@ -70,6 +70,13 @@ public class Line extends Shape {
 		// TODO Auto-generated method stub
 		g.setColor(getColor());
 		g.drawLine(this.startPoint.getX(), this.startPoint.getY(), this.endPoint.getX(), this.endPoint.getY());
+		
+		if(selected) {
+			g.setColor(Color.BLUE);
+			g.drawRect(startPoint.getX()-2, startPoint.getY()-2, 4, 4);
+			g.drawRect(endPoint.getX()-2, endPoint.getY()-2, 4, 4);
+			g.setColor(Color.BLACK);
+		}
 	}
 
 	@Override

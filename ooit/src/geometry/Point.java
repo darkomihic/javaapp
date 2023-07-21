@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 
@@ -79,6 +80,13 @@ public class Point extends Shape {
 		g.setColor(getColor());
 		g.drawLine(this.x-2, this.y, this.x+2, this.y);
 		g.drawLine(this.x,  this.y-2,  this.x, this.y+2);
+		
+		if(selected) {
+			g.setColor(Color.BLUE);
+			g.drawRect(x-2, y-2, 4, 4);
+			g.setColor(Color.BLACK);
+
+		}
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 
 public class Circle extends SurfaceShape {
-	private Point center;
+	protected Point center;
 	private int radius;
 	
 	
@@ -80,6 +80,16 @@ public class Circle extends SurfaceShape {
 		g.setColor(getColor());
 		g.drawOval(this.center.getX()-this.radius, this.center.getY()-this.radius, this.radius*2, this.radius*2 );
 		this.fill(g);
+		
+		if (selected) {
+			g.setColor(Color.BLUE);
+			g.drawRect(center.getX() - 2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX() - radius - 2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX() + radius - 2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX() - 2, center.getY() - radius - 2, 4, 4);
+			g.drawRect(center.getX() - 2, center.getY() + radius - 2, 4, 4);
+			g.setColor(Color.BLACK);
+		}
 	}
 	
 	public void fill(Graphics g) {

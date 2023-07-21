@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public abstract class Shape implements Moveable {
 
-	private boolean selected;
+	protected boolean selected;
 	private Color color;
 	
 	public Shape() {
